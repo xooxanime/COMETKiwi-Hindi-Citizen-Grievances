@@ -1,0 +1,40 @@
+{
+  "experiment_title": "COMETKiwi Evaluation on Consolidated Hindi Synthetic 100-Pair Dataset",
+  "dataset_name": "hindi_synthetic_100_pairs_v1.csv",
+  "dataset_sha256": "ae04ccf209516e531a8cd2badd31e7dece3d2f59ce137053b69edb51ba6538d5",
+  "evaluation_timestamp_utc": "2026-10-20T09:07:03.043852+00:00",
+  "model_name": "Unbabel/wmt22-cometkiwi-da",
+  "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "cuda_available": true,
+  "batch_size": 2,
+  "software_versions": {
+    "python": "3.12.10",
+    "torch": "2.6.0+cu126",
+    "comet": "2.2.7",
+    "pandas": "3.0.6",
+    "numpy": "1.26.4"
+  },
+  "evaluation_scope": {
+    "total_pairs": 100,
+    "total_candidate_inferences": 200,
+    "categories_count": 10,
+    "pairs_per_category": 10
+  },
+  "overall_pairwise_metrics": {
+    "faithful_higher_count": 95,
+    "corrupted_higher_count": 5,
+    "tie_count": 0,
+    "strict_pairwise_accuracy": 0.95,
+    "mean_score_difference": 0.041884,
+    "median_score_difference": 0.016785,
+    "std_score_difference": 0.053249,
+    "min_score_difference": -0.006049,
+    "max_score_difference": 0.301254
+  },
+  "model_checkpoint_path": "REDACTED - local machine path omitted for public release",
+  "research_integrity_notes": [
+    "Exploratory evaluation on synthetic test pairs.",
+    "Semantic labels reflect intended construction designs; independent bilingual human validation not performed.",
+    "Scores represent quality-estimation model behavior, not verified human perceptual quality."
+  ]
+}

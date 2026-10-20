@@ -1,0 +1,11 @@
+﻿error_category,pair_count,faithful_higher,corrupted_higher,ties,pairwise_accuracy,mean_score_difference,median_score_difference,min_score_difference,max_score_difference
+negation_service_status,10,10,0,0,1.0,0.138982,0.135938,0.105047,0.185049
+department_routing_correctness,10,10,0,0,1.0,0.05516,0.049298,0.026972,0.094625
+urgency,10,10,0,0,1.0,0.045549,0.0457,0.017153,0.061001
+location_detail,10,10,0,0,1.0,0.012308,0.00871,0.002789,0.029079
+amount,10,10,0,0,1.0,0.011334,0.006096,0.00434,0.055577
+duration,10,10,0,0,1.0,0.008288,0.008297,0.00358,0.013028
+requested_action,10,9,1,0,0.9,0.111335,0.100483,-0.000551,0.301254
+location,10,9,1,0,0.9,0.021146,0.018569,-0.000628,0.053257
+date,10,9,1,0,0.9,0.009803,0.007307,-0.001283,0.027914
+time_reference,10,8,2,0,0.8,0.004933,0.002971,-0.006049,0.012457

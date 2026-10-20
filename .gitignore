@@ -1,0 +1,16 @@
+﻿*.backup_*
+__pycache__/
+.venv/
+venv/
+.env
+
+# Unverified paper drafts and temporary comparisons
+paper/main_earlier_draft.tex
+paper/pdf_comparison/
+paper/references_earlier_draft.bib
+paper/selected_source/backups/
+paper/selected_source/main_corrected_review.tex
+paper/selected_source/selected_paper_source_for_overleaf.zip
+paper/source_latex.zip
+
+paper/selected_source/

@@ -1,0 +1,13 @@
+# Requirements for evaluation and analysis scripts
+# Tested: Python 3.12.10, Windows 11, CUDA 12.6
+
+# Model evaluation (GPU run only)
+torch>=2.0.0          # Install CUDA build from https://pytorch.org/get-started/locally/
+unbabel-comet==2.2.7  # Exact version used in the published experiment
+
+# Data handling
+pandas>=2.0.0
+numpy>=1.26.0
+
+# Visualization (run_analysis.py figure generation)
+matplotlib>=3.7.0

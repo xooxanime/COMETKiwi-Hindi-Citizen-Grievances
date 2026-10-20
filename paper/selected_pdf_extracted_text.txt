@@ -1,0 +1,407 @@
+--- PAGE 1 ---
+
+Evaluating Consequential Meaning Errors in Hindi
+Citizen Grievances: A Challenge Set Analysis of
+COMETKiwi
+Krishnam
+AIML, KIET
+Sikandra Rao, India
+Krishna Varshney
+AIML, KIET
+Kasganj, India
+Harshit
+AIML, KIET
+Ghaziabad, India
+Kushagra Rashtogi
+AIML, KIET
+Siyana, India
+Abstract—Automatic translation evaluation is increasingly rel-
+evant to multilingual public-service communication, where small
+meaning changes can affect how a citizen’s request is inter-
+preted. This paper presents a controlled challenge-set analysis
+of COMETKiwi on synthetic English–Hindi citizen-grievance
+translation pairs. The set contains 100 pairs across ten intended
+administrative meaning-error categories, with one intended faith-
+ful Hindi candidate and one deliberately corrupted candidate per
+pair. We evaluate whether the metric assigns a higher quality-
+estimation score to the faithful candidate. Across 100 pairs,
+COMETKiwi ranked the faithful candidate higher in 95 cases
+and the corrupted candidate higher in five, yielding 95% strict
+pairwise agreement. The mean score difference was 0.041884,
+and the median was 0.016785. Time-reference errors had the
+lowest category-level agreement, with eight of ten pairs ranked
+correctly. The exploratory analysis also examines candidate-
+score distributions and pairwise score margins. These findings
+characterize metric behavior on a small, synthetic, category-
+balanced diagnostic set; they do not establish performance on
+naturally occurring grievances or demonstrate real-world harm.
+The pair labels reflect intended synthetic constructions and have
+not been independently validated by bilingual human annotators.
+Index Terms—machine translation evaluation, quality esti-
+mation, Hindi, citizen grievances, COMETKiwi, challenge set,
+semantic fidelity
+I. INTRODUCTION
+Public-service systems increasingly receive requests in mul-
+tiple languages. In this setting, translation errors involving
+dates, amounts, locations, urgency, or requested actions may
+change how a request is understood. General translation-
+quality scores can summarize overall quality, but aggregate
+scores may obscure whether an evaluator distinguishes a
+faithful translation from a minimally altered candidate.
+This study examines the pairwise ranking behavior of
+COMETKiwi, a reference-free machine-translation quality-
+estimation metric, on a controlled English–Hindi challenge
+set designed around administrative meaning changes. Each
+item contains an English source, an intended faithful Hindi
+candidate, and a corrupted Hindi candidate intended to alter an
+administrative detail. The experiment asks whether the metric
+assigns a higher score to the faithful candidate.
+The contributions are a synthetic, category-balanced set
+of 100 candidate pairs, a pairwise and category-level score-
+margin analysis, an exploratory analysis of candidate scores,
+and an examination of five ranking inversions and low-margin
+comparisons. This is a diagnostic analysis rather than a new
+evaluation metric or a claim about deployment readiness.
+Because the set is synthetic and its semantic labels have
+not been independently validated by bilingual annotators, the
+findings should be interpreted as a pilot characterization of
+metric behavior.
+II. RESEARCHQUESTIONS
+This study addresses the following questions:
+•RQ1:How often does COMETKiwi rank the intended
+faithful Hindi candidate above the corrupted candidate?
+•RQ2:How do pairwise ranking outcomes and score
+margins vary across the ten intended error categories?
+•RQ3:What characteristics are present in cases where the
+corrupted candidate receives a higher score?
+•RQ4:What do the candidate-score distributions and
+pairwise margins reveal about metric behavior on this
+constructed dataset?
+III. RELATEDWORK
+Automatic machine-translation evaluation has moved be-
+yond lexical overlap toward learned metrics that model se-
+mantic adequacy and translation quality. COMETKiwi pro-
+vides reference-free quality estimation and was introduced in
+the context of the WMT quality-estimation shared task [1].
+Reference-free evaluation is useful when a gold reference
+translation is unavailable, but its scores remain estimates rather
+than guarantees of semantic correctness.
+More recent work, including xCOMET, explores finer-
+grained evaluation and error-span explanations [2]. Such work
+motivates evaluating not only average scores but also behavior
+on targeted error cases. For multilingual Indic settings, systems
+such as IndicTrans2 illustrate ongoing efforts to improve
+translation across Indian languages [3]. The present work is
+complementary: it does not compare translation systems, but
+probes whether a quality-estimation metric distinguishes in-
+tended faithful and corrupted Hindi candidates in a constrained
+administrative domain.
+The study makes a narrow contribution: a controlled Hindi
+citizen-grievance challenge-set analysis. It does not claim to
+
+--- PAGE 2 ---
+
+be the first study of translation metrics, Hindi translation, or
+administrative translation errors.
+IV. EXPLORATORYDATAANALYSIS
+A. Dataset Composition
+The supplied result files contain 200 candidate-level scores
+and 100 paired comparisons. Each pair contains one intended
+faithful Hindi candidate and one corrupted candidate. The
+challenge set is balanced by construction: each of the ten in-
+tended error categories contains ten pairs, giving 20 candidate
+translations per category.
+The categories are negation and service status, date, du-
+ration, amount, location, location detail, requested action,
+department-routing correctness, time reference, and urgency.
+Figure 1 illustrates the number of pairs in each category.
+Fig. 1. Number of paired examples in each intended error category. Each
+category contains ten pairs.
+B. Candidate Score Distributions
+Across the 100 intended faithful candidates, the mean
+COMETKiwi score was approximately 0.8557, with a standard
+deviation of 0.0348. Across the 100 corrupted candidates, the
+mean was approximately 0.8138, with a standard deviation of
+0.0619. The observed score range across all candidates was
+approximately 0.5597–0.8952.
+Figure 2 compares the score distributions by candidate role.
+Faithful candidates had a higher mean score in this dataset,
+although the distributions overlap. A higher metric score does
+not by itself establish semantic correctness.
+C. Pairwise Score Margins
+For each pair, the score margin is defined as
+∆i =s Fi −s Ci ,(1)
+wheres Fi is the intended faithful candidate score ands Ci is
+the corrupted candidate score. Positive values indicate that the
+faithful candidate received a higher score, whereas negative
+values indicate ranking inversions.
+The mean margin was 0.041884 and the median was
+0.016785. The margins ranged from−0.006049to0.301254.
+Figure 3 displays the margin distributions by category.
+Eighteen pairs had|∆ i|<0.005, 37 had|∆ i|<0.010, and
+49 had|∆ i|<0.015. These thresholds are exploratory and
+are not calibrated uncertainty estimates.
+Fig. 2. COMETKiwi score distributions for intended faithful and corrupted
+candidates.
+Fig. 3. Distribution of pairwise score differences by intended error category.
+The vertical dashed line marks zero; negative values indicate ranking inver-
+sions.
+D. EDA Summary
+The exploratory analysis shows that the challenge set
+contains ten pairs in each intended error category and that
+intended faithful candidates have a higher mean COMETKiwi
+score than corrupted candidates. However, some corrupted
+candidates receive higher scores than their paired faithful
+candidates. The score distributions overlap, and the score
+margin varies across pairs.
+These observations motivate the pairwise and category-level
+analyses in Section VI. The dataset is synthetic, and its in-
+tended semantic labels have not been independently validated
+by bilingual human annotators. Therefore, this EDA describes
+the constructed dataset and does not establish performance on
+real-world citizen grievances.
+V. METHODOLOGY
+A. Challenge-Set Construction
+The challenge set contains 100 synthetic English-
+source/Hindi-candidate pairs, identified asSYN001_hi
+throughSYN100_hi. Ten intended error categories are rep-
+resented, with ten pairs per category:
+•negation and service status;
+
+--- PAGE 3 ---
+
+•date;
+•duration;
+•amount;
+•location;
+•location detail;
+•requested action;
+•department-routing correctness;
+•time reference; and
+•urgency.
+For each source, the pair contains a candidate intended
+to preserve the source meaning and a candidate intentionally
+altered to introduce a targeted meaning change. The examples
+are synthetic and were designed for controlled diagnosis rather
+than sampled from real citizen submissions.
+The category names describe the intended construction
+of the examples. In particular, department-routing exam-
+ples contrast a wrong-department description with a correct-
+department description; they do not consistently swap the
+names of two specific departments.
+B. Metric and Inference
+We evaluatedUnbabel/wmt22-cometkiwi-da. Each
+of the 200 Hindi candidates was scored against its English
+source using the reference-free metric. Inference was run on
+an NVIDIA RTX 3050 Laptop GPU with batch size 2.
+The recorded SHA-256 digest of the evaluated dataset is:
+ae04ccf209516e531a8cd2badd31e7dece3d2f59ce137053b69edb51ba6538d
+A positive∆ i indicates that COMETKiwi ranks the in-
+tended faithful candidate higher; a negative value is a ranking
+inversion; and zero is a tie. The strict pairwise agreement rate
+is
+A= 1N
+N∑︂
+i=1
+I(∆i >0),(2)
+whereN= 100andI(·)is the indicator function. Ties are
+not counted as correct under this strict definition.
+C. Analysis and V alidity
+We report the strict pairwise outcome, mean and median
+score differences, category-level outcomes, ranking inver-
+sions, and counts of low-margin comparisons. The low-margin
+thresholds are descriptive diagnostics rather than calibrated
+confidence boundaries.
+The dataset labels reflect the intended synthetic construc-
+tion. No independent bilingual human validation or hu-
+man inter-annotator agreement study was performed. An AI-
+assisted semantic audit was used as a diagnostic aid, but it is
+not ground truth and does not replace human validation.
+Since pairs share category-specific construction patterns,
+confidence intervals that assume independent observations
+may not fully reflect dependence. The experiment also does
+not measure the frequency of these errors in real-world data.
+VI. RESULTS
+A. Overall Pairwise Ranking
+COMETKiwi assigned a higher score to the intended faith-
+ful candidate in 95 of 100 pairs. In five pairs, the corrupted
+candidate received a higher score; no ties were observed. The
+strict pairwise agreement rate was therefore 95%.
+The mean score difference was 0.041884, with a standard
+deviation of 0.053249. The median was 0.016785. Observed
+score differences ranged from−0.006049to0.301254.
+TABLE I
+OVERALLPAIRWISERESULTS
+Measure Result
+Number of pairs 100
+Faithful candidate ranked higher 95
+Corrupted candidate ranked higher 5
+Ties 0
+Strict pairwise agreement 95.0%
+Mean score difference 0.041884
+Median score difference 0.016785
+Standard deviation 0.053249
+Minimum score difference -0.006049
+Maximum score difference 0.301254
+A Wilson 95% confidence interval for the observed propor-
+tion 95/100 is approximately 88.82%–97.85%. This interval
+describes binomial sampling uncertainty under its assump-
+tions; it does not account for the synthetic construction process
+or category-level dependence.
+B. Category-Level Results
+Table II summarizes pairwise outcomes and score differ-
+ences by intended category. Each category contains ten pairs.
+COMETKiwi ranked the intended faithful candidate higher
+in all ten examples in six categories. Time reference had the
+lowest agreement, with eight correct rankings out of ten.
+The time-reference category had both the lowest strict
+agreement and a small median margin. By contrast, the
+negation/service-status category had a comparatively large
+mean margin. These observations are descriptive and should
+not be generalized beyond the current synthetic examples.
+C. Ranking Inversions
+The five ranking inversions had negative score differences
+close to zero. Table III lists the affected pairs and their scores.
+These examples are useful for follow-up inspection, but they
+do not by themselves identify the mechanism behind a metric’s
+ranking.
+For all five inversions, the absolute score difference was
+below 0.01. This indicates that the ranking errors in this run
+were low-margin comparisons, although the scores alone can-
+not establish why the metric preferred the corrupted candidate.
+Potential explanations such as lexical overlap or contextual
+representation effects require separate controlled analysis and
+were not tested here.
+
+--- PAGE 4 ---
+
+TABLE II
+PAIRWISERESULTS BYINTENDEDERRORCATEGORY
+Category Pairs Faithful higher Mean∆Median∆
+Negation / service status 10 10 0.138982 0.135938
+Department-routing correctness 10 10 0.055160 0.049298
+Urgency 10 10 0.045549 0.045700
+Location detail 10 10 0.012308 0.008710
+Amount 10 10 0.011334 0.006096
+Duration 10 10 0.008288 0.008297
+Requested action 10 9 0.111335 0.100483
+Location 10 9 0.021146 0.018569
+Date 10 9 0.009803 0.007307
+Time reference 10 8 0.004933 0.002971
+TABLE III
+PAIRSWHERE THECORRUPTEDCANDIDATESCOREDHIGHER
+Pair ID Category Faithful Corrupted Intended contrast
+SYN007 hi Requested action 0.873128 0.873679 Restore a ration card versus cancel it
+SYN025 hi Location 0.885405 0.886033 Chandanpur versus Madanpur
+SYN002 hi Date 0.881748 0.883031 12 June versus 12 July
+SYN079 hi Time reference 0.877760 0.879352 Wednesday afternoon versus night
+SYN059 hi Time reference 0.735290 0.741339 Sunday afternoon versus night during a
+storm
+D. Low-Margin Comparisons
+Using|∆ i|<0.005, 18 pairs were low-margin; using
+|∆i|<0.010, 37 pairs were low-margin; and using|∆ i|<
+0.015, 49 pairs were low-margin.
+At the 0.010 threshold, 32 pairs ranked the intended faithful
+candidate higher and five were ranking inversions. These
+thresholds are exploratory and should not be interpreted as
+model-calibrated uncertainty estimates.
+VII. DISCUSSION
+The main finding is that COMETKiwi ranked the intended
+faithful candidate higher for most pairs in this synthetic
+challenge set, while still producing five ranking inversions. The
+inversions involved requested action, location, date, and time
+reference. They illustrate why a high aggregate agreement rate
+does not imply that every potentially important administrative
+detail is reliably distinguished.
+The category results caution against treating the score
+as a uniform guarantee across error types. Time-reference
+examples were the most difficult category in this run, whereas
+all ten examples in six other categories were ranked as
+intended. However, there are only ten examples per category,
+and categories are defined by the set’s construction. These
+differences motivate larger, independently validated follow-
+up studies rather than strong claims about general category
+difficulty.
+The experiment is not a deployment evaluation. It does not
+establish how frequently these errors occur in naturally sub-
+mitted grievances, how a human operator would interpret the
+examples, or whether a metric score would change a public-
+service outcome. It also does not compare COMETKiwi with
+human judgments or other metrics.
+VIII. LIMITATIONS ANDETHICALCONSIDERATIONS
+This pilot has several limitations. First, the 100 pairs are
+synthetic and may not capture the linguistic variety, spelling
+variation, code-switching, ambiguity, or contextual complexity
+of real citizen grievances. Second, the intended labels have not
+been independently verified by bilingual human annotators.
+The AI-assisted audit is only a diagnostic tool and cannot be
+presented as human validation or inter-annotator agreement.
+Third, there are only ten pairs per category, limiting the
+reliability of category-level estimates. Fourth, all examples
+are evaluated with one metric checkpoint and one recorded
+inference setup; the study does not establish comparative
+performance against alternative evaluators. Fifth, the confi-
+dence interval for the overall proportion does not account
+for dependencies introduced by shared templates or category
+construction.
+The examples concern potentially consequential administra-
+tive details, but the experiment measures metric rankings, not
+actual harms. The paper therefore does not infer observed harm
+or claim readiness for public-service deployment. Future work
+should use independently authored examples, bilingual expert
+review, adjudication of disputed labels, a larger sample, and
+real or carefully de-identified examples where ethically and
+legally appropriate. Any use in public services should retain
+human oversight and should not use a metric score as the sole
+basis for deciding how a grievance is handled.
+
+--- PAGE 5 ---
+
+IX. REPRODUCIBILITY
+The evaluated checkpoint was
+Unbabel/wmt22-cometkiwi-da; inference used an
+NVIDIA RTX 3050 Laptop GPU and batch size 2. The
+pairwise difference is defined in Eq. (1). The evaluated
+dataset version is identified by the SHA-256 digest reported
+in the methodology.
+The recorded result artifacts include candidate scores,
+pairwise results, category analysis, failure cases, ranked-pair
+analysis, a summary JSON file, and a research-results note.
+Before release, the authors should publish the synthetic data,
+inference script, package versions, exact checkpoint revision,
+and generated result files in a stable repository, subject to the
+model’s license conditions.
+The COMETKiwi checkpoint is reported as distributed
+under a non-commercial share-alike license (CC-BY-NC-SA-
+4.0). Check its current license and comply with its terms before
+redistribution or commercial use.
+X. CONCLUSION
+This paper presented a controlled analysis of COMETKiwi
+on 100 synthetic English–Hindi citizen-grievance candidate
+pairs spanning ten intended administrative meaning-error cat-
+egories. The metric ranked the intended faithful candidate
+higher in 95 pairs, with five low-margin ranking inversions and
+no ties. The time-reference category had the lowest pairwise
+agreement in this set.
+The exploratory analysis showed that the faithful candidates
+had a higher mean score than corrupted candidates, while
+their score distributions overlapped. These findings provide
+a diagnostic snapshot of model behavior, not evidence of real-
+world harm or reliable performance on naturally occurring
+grievances. Independent bilingual validation, broader data,
+baseline comparisons, and human evaluation are necessary
+before drawing stronger conclusions about the use of quality-
+estimation metrics in public-service workflows.
+REFERENCES
+[1] R. Rei, C. Stewart, A. C. Farinha, and A. Lavie, “COMETKiwi: IST-
+Unbabel 2022 submission for the quality estimation shared task,” in
+Proceedings of the Seventh Conference on Machine Translation (WMT),
+2022, pp. 634–645.
+[2] N. M. Guerreiro, P. Alves, J. Pombal, B. M. Martins, and A. F. T.
+Martins, “xCOMET: Transparent machine translation evaluation through
+fine-grained error detection,”Transactions of the Association for Com-
+putational Linguistics, vol. 12, pp. 979–995, 2024.
+[3] J. Gala et al., “IndicTrans2: Towards high-quality and accessible ma-
+chine translation models for all 22 scheduled Indian languages,” in
+Proceedings of the 2023 Conference on Empirical Methods in Natural
+Language Processing: System Demonstrations, 2023, pp. 392–406.

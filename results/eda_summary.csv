@@ -1,0 +1,12 @@
+metric,value
+total_pairs,100
+faithful_higher,95
+corrupted_higher,5
+ties,0
+pairwise_accuracy,0.9500
+mean_score_difference,0.041884
+median_score_difference,0.016785
+std_score_difference,0.053249
+min_score_difference,-0.006049
+max_score_difference,0.301254
+pairs_abs_diff_lt_0005,18

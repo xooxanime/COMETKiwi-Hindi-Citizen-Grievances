@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this dataset, code, or paper, please cite it as below."
+title: "Evaluating Consequential Meaning Errors in Hindi Citizen Grievances: A Challenge Set Analysis of COMETKiwi"
+version: "1.0.0"
+date-released: "2026-10-20"
+type: dataset
+authors:
+  - name: "Krishnam"
+    affiliation: "Department of AIML, KIET, Sikandra Rao, India"
+  - name: "Krishna Varshney"
+    affiliation: "Department of AIML, KIET, Kasganj, India"
+  - name: "Harshit"
+    affiliation: "Department of AIML, KIET, Ghaziabad, India"
+  - name: "Kushagra Rashtogi"
+    affiliation: "Department of AIML, KIET, Siyana, India"
+abstract: >
+  This study evaluates the pairwise ranking behavior of COMETKiwi on a synthetic,
+  category-balanced English-Hindi citizen-grievance challenge set comprising 100
+  candidate pairs across ten administrative meaning-error categories. The analysis
+  reports pairwise ranking agreement, score margins, category-level patterns, and
+  ranking inversions. The examples are synthetic. Independent bilingual human
+  validation has not yet been conducted.
+keywords:
+  - "quality estimation"
+  - "COMETKiwi"
+  - "Hindi"
+  - "citizen grievances"
+  - "challenge set"
+  - "machine translation evaluation"
+  - "administrative NLP"
+license: "CC-BY-4.0"
+doi: "PENDING - assign after Zenodo upload"
