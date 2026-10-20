@@ -1,4 +1,12 @@
-﻿# Evaluating Consequential Meaning Errors in Hindi Citizen Grievances
+## Research Archive
+
+**Zenodo DOI:** [10.5281/zenodo.23507559](https://doi.org/10.5281/zenodo.23507559)
+
+**Archived release:** [v1.0.2](https://github.com/xooxanime/COMETKiwi-Hindi-Citizen-Grievances/releases/tag/v1.0.2)
+
+This repository contains the research paper, synthetic Hindi citizen-grievance challenge set, evaluation scripts, analysis results, and reproducibility documentation.
+ 
+ # Evaluating Consequential Meaning Errors in Hindi Citizen Grievances
 ## A Challenge Set Analysis of COMETKiwi
 
 **DOI:** *Pending - will be assigned upon Zenodo upload*
